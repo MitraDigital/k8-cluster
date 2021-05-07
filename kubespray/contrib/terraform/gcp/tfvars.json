@@ -1,0 +1,92 @@
+{
+  "gcp_project_id": "developmentserviceproject",
+  "region": "us-east1",
+  "ssh_pub_key": "gcp.pub",
+
+  "keyfile_location": "service_account.json",
+
+  "prefix": "development",
+
+  "ssh_whitelist": [
+    "0.0.0.0/0"
+  ],
+  "api_server_whitelist": [
+    "0.0.0.0/0"
+  ],
+  "nodeport_whitelist": [
+    "0.0.0.0/0"
+  ],
+
+  "machines": {
+    "master-0": {
+      "node_type": "master",
+      "size": "e2-medium",
+      "zone": "us-east1-b",
+      "additional_disks": {},
+      "boot_disk": {
+        "image_name": "ubuntu-os-cloud/ubuntu-1804-bionic-v20201116",
+        "size": 50
+      }
+    },"master-1": {
+      "node_type": "master",
+      "size": "e2-medium",
+      "zone": "us-east1-b",
+      "additional_disks": {},
+      "boot_disk": {
+        "image_name": "ubuntu-os-cloud/ubuntu-1804-bionic-v20201116",
+        "size": 50
+      }
+    },
+    "master-2": {
+      "node_type": "master",
+      "size": "e2-medium",
+      "zone": "us-east1-b",
+      "additional_disks": {},
+      "boot_disk": {
+        "image_name": "ubuntu-os-cloud/ubuntu-1804-bionic-v20201116",
+        "size": 50
+      }
+    },
+    "worker-0": {
+      "node_type": "worker",
+      "size": "e2-medium",
+      "zone": "us-east1-b",
+      "additional_disks": {
+        "extra-disk-1": {
+          "size": 100
+        }
+      },
+      "boot_disk": {
+        "image_name": "ubuntu-os-cloud/ubuntu-1804-bionic-v20201116",
+        "size": 50
+      }
+    },
+    "worker-1": {
+      "node_type": "worker",
+      "size": "e2-medium",
+      "zone": "us-east1-b",
+      "additional_disks": {
+        "extra-disk-1": {
+          "size": 100
+        }
+      },
+      "boot_disk": {
+        "image_name": "ubuntu-os-cloud/ubuntu-1804-bionic-v20201116",
+        "size": 50
+      }
+    },"worker-2": {
+      "node_type": "worker",
+      "size": "e2-medium",
+      "zone": "us-east1-b",
+      "additional_disks": {
+        "extra-disk-1": {
+          "size": 100
+        }
+      },
+      "boot_disk": {
+        "image_name": "ubuntu-os-cloud/ubuntu-1804-bionic-v20201116",
+        "size": 50
+      }
+    }
+  }
+}
