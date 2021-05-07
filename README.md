@@ -189,5 +189,24 @@ all:
 ![Setup Diagram](images/supplementatry_hosts.png)
 This is to update the accepted hosts ( specify master host ips ) in the certificate, this will allow access to the kube cluster through kubectl from remote the server using the kubeconfig file.
 
+- Also to enable the Kubernetes dashboard /inventory/devcluster/group_vars/k8s-cluster/addons.yml
+![Setup Diagram](images/addons.png)
+
+- Executing the Ansible Playbook
+
+- Make sure the private key have specific needed permission
+```sh
+sudo chmod 600 contrib/terraform/gcp/gcp
+```
+- When using the servers for the first time, they need to accept the hosts as authorized. Execute the below for each server ips.
+```sh
+ssh-keygen -f /home/devuser/.ssh/known_hosts -R 35.196.172.78
+ssh -i contrib/terraform/gcp/gcp ubuntu@35.196.64.91
+```
+- Execute the Cluster Setup Script
+```sh
+ansible-playbook -i inventory/devcluster/hosts.yaml --become --user=ubuntu cluster.yml --private-key=contrib/terraform/gcp/gcp
+```
+> This will take around 45 minutes to get deployed.
 
 
